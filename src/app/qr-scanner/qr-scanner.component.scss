@@ -1,0 +1,19 @@
+#qr-reader {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Ограничение максимальной ширины */
+    height: 300px;
+    aspect-ratio: 1; /* Делает квадратный контейнер */
+    overflow: hidden; /* Скрывает выходящие за границы элементы */
+    border: 2px solid #ccc; /* Добавляем рамку для проверки */
+    border-radius: 8px;
+    background-color: #000; /* Устанавливаем черный фон */
+    margin: 0 auto; /* Центрируем */
+  }
+  
+  #qr-reader video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Убедитесь, что видео вписывается в контейнер */
+    border-radius: 8px; /* Скругляем углы видео */
+  }

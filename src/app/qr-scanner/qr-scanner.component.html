@@ -1,0 +1,53 @@
+<div class="container py-5">
+  <div class="text-center">
+    <h1 class="mb-4 display-5">Scan QR Code</h1>
+    <p class="text-muted">
+      Use the camera or upload an image to scan a QR code.
+    </p>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Загрузка изображения -->
+    <div class="col-lg-5 col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h3 class="card-title">Upload QR Image</h3>
+          <input type="file" id="qr-image" class="form-control mt-3" (change)="uploadFile($event)" />
+          <small class="text-muted d-block mt-2">
+            Drag & Drop or Click to Browse
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Сканирование через камеру -->
+    <div class="col-lg-5 col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h3 class="card-title">Webcam QR Scanner</h3>
+          <div id="qr-reader" class="qr-reader border mb-4"></div>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary me-2" (click)="openCamera()">Open Camera</button>
+            <button class="btn btn-secondary ms-2" (click)="switchCamera()">Switch Camera</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Результаты -->
+  <div class="card shadow-sm border-0 mt-5">
+    <div class="card-body text-center">
+      <h3>Scanned Data</h3>
+      <textarea class="form-control mt-3" readonly style="height: 100px;">{{ scannedResult }}</textarea>
+      <div *ngIf="capturedImage" class="mt-4">
+        <h4>Captured Image</h4>
+        <img [src]="capturedImage" alt="Captured QR Code" class="img-fluid mt-2 shadow" />
+      </div>
+      <div class="d-flex justify-content-around mt-4">
+        <button class="btn btn-success me-2" (click)="copyResults()">Copy Results</button>
+        <button class="btn btn-warning ms-2" (click)="saveResult()">Save Results</button>
+      </div>
+    </div>
+  </div>
+</div>
